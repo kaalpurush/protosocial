@@ -16,7 +16,7 @@ class HomeController extends BaseController {
 	public function postCapture()
 	{
 		$data=array();
-		$data['profile']=Capture::profile('fb',$_POST['user_id']);
+		$data['profile']=Capture::profile('FB',$_POST['user_id']);
 		$data['keyword']=$_POST['keyword'];
 		$this->layout->content = View::make('home/capture',$data);
 	}	
