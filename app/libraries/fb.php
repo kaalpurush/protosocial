@@ -56,16 +56,10 @@ class FB{
 		}
 	}
 	
-	public static function accessToken(){
-		if(!Session::has('access_token'))
-			static::retrieve_user_token();
-		return Session::get('access_token','');
-	}
-	
 	public static function search_user($username){
 		$ret=array();
 		try{
-			$access_token=static::accessToken();
+			$access_token=static::inst()->getUserAccessToken();
 			$ret = static::inst()->api('/search?q='.$username.'&type=user','GET',array('access_token'=>$access_token));
 		}
 		catch(Exception $e){
