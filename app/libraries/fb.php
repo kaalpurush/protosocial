@@ -57,6 +57,8 @@ class FB{
 	}
 	
 	public static function accessToken(){
+		if(!Session::has('access_token'))
+			retrieve_user_token();
 		return Session::get('access_token','');
 	}
 	

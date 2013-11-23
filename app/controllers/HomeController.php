@@ -15,9 +15,6 @@ class HomeController extends BaseController {
 	
 	public function postCapture()
 	{
-		if(FB::logged()){
-			$access_token=FB::retrieve_user_token();					
-		}
 		$data=array();
 		$data['profile']=Capture::profile('fb',$_POST['user_id']);
 		$data['keyword']=$_POST['keyword'];
