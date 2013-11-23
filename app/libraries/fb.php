@@ -13,7 +13,7 @@
  * 
  */
 
-class fb{	
+class FB{	
 	public static $appId='38414788980';
 	public static $appSecret='f001f927781c8438f34d3b425ba7f6b0';
 	public static $inst=NULL;

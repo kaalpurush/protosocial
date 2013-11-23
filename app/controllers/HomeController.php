@@ -6,8 +6,8 @@ class HomeController extends BaseController {
 	
 	public function getCapture()
 	{
-		if(!fb::logged()){
-			$url= fb::login_url();
+		if(!FB::logged()){
+			$url= FB::login_url();
 			return Redirect::to($url);
 		}		
 		$this->layout->content = View::make('home/capture');		
@@ -15,8 +15,8 @@ class HomeController extends BaseController {
 	
 	public function postCapture()
 	{
-		if(fb::logged()){
-			$access_token=fb::retrieve_user_token();					
+		if(FB::logged()){
+			$access_token=FB::retrieve_user_token();					
 		}
 		$data=array();
 		$data['profile']=Capture::profile('fb',$_POST['user_id']);
@@ -28,7 +28,7 @@ class HomeController extends BaseController {
 	{
 		$result=array();
 		$username=$_POST['q'];
-		$result=fb::search_user($username);
+		$result=FB::search_user($username);
 		return json_encode($result);
 	}
 	
