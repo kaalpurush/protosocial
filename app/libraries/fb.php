@@ -14,8 +14,8 @@
  */
 
 class FB{	
-	public static $appId='38414788980';
-	public static $appSecret='f001f927781c8438f34d3b425ba7f6b0';
+	public static $appId;
+	public static $appSecret;
 	public static $inst=NULL;
 	
 	public static function profile($username){		
@@ -89,12 +89,15 @@ class FB{
 	}
 	
 	public static function inst(){
-		if(static::$inst==NULL)
+		if(static::$inst==NULL){
+			static::$appId=Config::get('fb.app_id');
+			static::$appSecret=Config::get('fb.app_secret');
 			static::$inst=new Facebook(array(
 							'appId' => static::$appId,
 							'secret' => static::$appSecret,
 							'cookie' => true,
 						));
+		}
 		return static::$inst;
 	}
 	

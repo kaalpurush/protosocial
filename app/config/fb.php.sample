@@ -1,0 +1,8 @@
+<?php
+
+return array(
+
+	'app_id' => '38414788980',
+	'app_secret' => 'f001f927781c8438f34d3b425ba7f6b0',
+
+);
