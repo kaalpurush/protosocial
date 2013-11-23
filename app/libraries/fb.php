@@ -59,7 +59,7 @@ class FB{
 	public static function search_user($username){
 		$ret=array();
 		try{
-			$access_token=static::inst()->getUserAccessToken();
+			$access_token=static::inst()->getAccessToken();
 			$ret = static::inst()->api('/search?q='.$username.'&type=user','GET',array('access_token'=>$access_token));
 		}
 		catch(Exception $e){
